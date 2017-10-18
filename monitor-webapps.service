@@ -1,0 +1,17 @@
+[Unit]
+Description=Webapp upload monitor and auto-deployer
+After=tomcat.service
+
+[Service]
+Type=simple
+ExecStart=/opt/deployer/monitor-webapps.sh
+#ExecStop=/opt/deployer/stop-monitor-webapps.sh
+
+User=deployer
+Group=deployer
+RestartSec=10
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+

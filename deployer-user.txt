@@ -1,0 +1,11 @@
+# add deployer group
+groupadd deployer
+# add deployer user
+useradd deployer -g deployer -d /opt/deployer
+# add to tomcat group so it an deploy webapps
+adduser deployer tomcat
+
+# SUDOER
+Cmnd_Alias TOMCAT_MGMT = /usr/sbin/service tomcat start, /usr/sbin/service tomcat stop
+
+deployer        ALL=(ALL) NOPASSWD: TOMCAT_MGMT
