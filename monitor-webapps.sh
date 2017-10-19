@@ -1,5 +1,5 @@
 #!/bin/bash
-inotifywait -m /opt/deployer/deploy/webapp -e create -e moved_to |
+inotifywait -m /opt/deployer/deploy/webapp -e close_write |
     while read path action file; do
         echo "[`date`] The file '$file' appeared in directory '$path' via '$action'" >> /opt/deployer/logs/webapp.log
         # stop tomcat
